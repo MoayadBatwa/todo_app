@@ -1,45 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/Routing/navigation_screen.dart';
 
 void main() {
-  runApp( MainApp());
+  runApp(const MainApp());
 }
 
 class MainApp extends StatelessWidget {
-   MainApp({super.key});
-  bool _value = false;
+  const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      
-      home: Scaffold(
-
-        appBar: AppBar(),
-
-        body: 
-        Padding(
-          padding: EdgeInsets.all(16.0),
-          child: CheckboxListTile( 
-            secondary: Icon(Icons.task),
-          
-            title: Text("Task 1"),
-          
-            subtitle: Text("Task Description"),
-
-            // check direction
-            controlAffinity: ListTileControlAffinity.trailing, 
-
-            selected: _value,
-            value: _value,
-            onChanged: () {
-              value = !value;
-            },
-          
-            
-          
-          ),
-        ),
-      ),
+    return MaterialApp.router(
+      routerConfig: NavigationScreen.route
     );
   }
 }
