@@ -1,29 +1,43 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp( MainApp());
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+   MainApp({super.key});
+  bool _value = false;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
       home: Scaffold(
 
         appBar: AppBar(),
 
         body: 
-        ListTile(
-          leading: Icon(Icons.task),
-
-          title: Text("Task 1"),
-
-          subtitle: Text("Task Description"),
-
+        Padding(
+          padding: EdgeInsets.all(16.0),
+          child: CheckboxListTile( 
+            secondary: Icon(Icons.task),
           
+            title: Text("Task 1"),
+          
+            subtitle: Text("Task Description"),
 
+            // check direction
+            controlAffinity: ListTileControlAffinity.trailing, 
+
+            selected: _value,
+            value: _value,
+            onChanged: () {
+              value = !value;
+            },
+          
+            
+          
+          ),
         ),
       ),
     );
