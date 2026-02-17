@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:todo_app/Routing/route_path.dart';
+import 'package:todo_app/core/Routing/route_path.dart';
 import 'package:todo_app/Screens/add_task.dart';
 import 'package:todo_app/Screens/task_screen.dart';
 
