@@ -18,6 +18,20 @@ class DataSource {
     return _tasks;
   }
 
+  int allTasksLength (){
+    return allTasks.length;
+  }
+
+  void switchCheckedByID(int elementID){
+    _tasks.map((element) {
+      if(element.id == elementID){
+        // print("original:$element\tinserted:$elementID");
+        element.completed = !element.completed;
+        }
+      }
+    ).toList();
+  }
+
   
 
   

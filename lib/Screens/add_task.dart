@@ -27,7 +27,7 @@ class _AddTaskState extends State<AddTask> {
 
             // assign the inputs to the model
             final newTask = TaskModel(
-              id: Random().nextInt(999999999999999999), 
+              id: Random().nextInt(99999999), 
               titleTask: controllerTitleTask.text, 
               descriptionTask: controllerDescriptionTask.text
             );

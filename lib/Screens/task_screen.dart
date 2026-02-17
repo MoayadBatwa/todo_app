@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:todo_app/core/Data/data_source.dart';
 import 'package:todo_app/core/Routing/route_path.dart';
 
 class TaskScreen extends StatefulWidget {
@@ -10,7 +11,6 @@ class TaskScreen extends StatefulWidget {
 }
 
 class _TaskScreenState extends State<TaskScreen> {
-  bool checked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class _TaskScreenState extends State<TaskScreen> {
 
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            context.go(RoutePath.addTask);
+            context.push(RoutePath.addTask);
           }
         ),
 
@@ -32,25 +32,52 @@ class _TaskScreenState extends State<TaskScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Card(
-                  color: const Color.fromARGB(214, 227, 229, 230),
-                  child: ListTile( 
-                    leading: Icon(Icons.task),
+                
+                ...List.generate(DataSource().allTasksLength(), (index) {
+                  return 
+                    Card(
+                      color: const Color.fromARGB(214, 227, 229, 230),
+                      child: ListTile( 
+                        leading: Icon(Icons.task),
+                      
+                        title: Text(DataSource().allTasks[index].titleTask),
+                      
+                        subtitle: Text(DataSource().allTasks[index].descriptionTask),
+                      
+                        trailing: Checkbox(value: DataSource().allTasks[index].completed, onChanged: (value){
+                          // DataSource().allTasks[index].completed = !DataSource().allTasks[index].completed;
+                          DataSource().switchCheckedByID(DataSource().allTasks[index].id);
+                          setState(() {});
+                        }),
+                      
+                        
+                      
+                      ),
+                    );
+                  },
+                ),
+
+                
+
+                // Card(
+                //   color: const Color.fromARGB(214, 227, 229, 230),
+                //   child: ListTile( 
+                //     leading: Icon(Icons.task),
                   
-                    title: Text("Task 1"),
+                //     title: Text("Task 1"),
                   
-                    subtitle: Text("Task Description"),
+                //     subtitle: Text("Task Description"),
                   
-                    trailing: Checkbox(value: checked, onChanged: (newValue){
-                      setState(() {
-                        checked = !checked;
-                      });
-                    }),
+                //     trailing: Checkbox(value: checked, onChanged: (newValue){
+                //       setState(() {
+                //         checked = !checked;
+                //       });
+                //     }),
                   
                     
                   
-                  ),
-                ),
+                //   ),
+                // ),
               ],
             ),
           ),
