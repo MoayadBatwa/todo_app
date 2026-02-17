@@ -40,37 +40,39 @@ class _AddTaskState extends State<AddTask> {
       ),
 
       body:
-      Column(children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: TextField(
-            controller: controllerTitleTask,
-            onTapOutside: (event) {FocusManager.instance.primaryFocus?.unfocus();},
-            decoration: InputDecoration(
-              labelText: "Main Task",
-              hintText: "Enter the Task here...",
-              border: OutlineInputBorder()
+      SingleChildScrollView(
+        child: Column(children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: controllerTitleTask,
+              onTapOutside: (event) {FocusManager.instance.primaryFocus?.unfocus();},
+              decoration: InputDecoration(
+                labelText: "Main Task",
+                hintText: "Enter the Task here...",
+                border: OutlineInputBorder()
+              ),
             ),
           ),
-        ),
-
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: TextField(
-            controller: controllerDescriptionTask,
-            maxLines: 5,
-            onTapOutside: (event) {
-              FocusManager.instance.primaryFocus?.unfocus();
-            },
-
-            decoration: InputDecoration(
-              labelText: "Task Description",
-              hintText: "Enter the Task Description...",
-              border: OutlineInputBorder(gapPadding: 10)
+        
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: controllerDescriptionTask,
+              maxLines: 5,
+              onTapOutside: (event) {
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
+        
+              decoration: InputDecoration(
+                labelText: "Task Description",
+                hintText: "Enter the Task Description...",
+                border: OutlineInputBorder(gapPadding: 10)
+              ),
             ),
           ),
-        ),
-      ],)
+        ],),
+      )
 
 
     );
