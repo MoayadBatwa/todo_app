@@ -18,3 +18,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: playWrite
+      fonts:
+        - asset: fonts\Playwrite_NZ_Basic_Guides\PlaywriteNZBasicGuides-Regular.ttf
+

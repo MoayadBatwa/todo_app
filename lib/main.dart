@@ -11,7 +11,8 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: NavigationScreen.route
+      routerConfig: NavigationScreen.route,
+      theme: ThemeData(fontFamily: 'playWrite'),
     );
   }
 }
