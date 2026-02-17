@@ -11,6 +11,7 @@ class TaskScreen extends StatefulWidget {
 }
 
 class _TaskScreenState extends State<TaskScreen> {
+  
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +33,20 @@ class _TaskScreenState extends State<TaskScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                SizedBox(
+                  // height: 200,
+                  width: 150,
+                  
+                  child:
+                    ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(25)),
+                      child:
+                        Image.asset("images/1top.png"),
+                    )
+                ),
+
+                SizedBox(height: 10),
+                
                 
                 ...List.generate(DataSource().allTasksLength(), (index) {
                   return 
